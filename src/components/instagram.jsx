@@ -1,4 +1,5 @@
 import React from "react";
+import instagram from "../assets/instagram.png";
 
 const Instagram = () => {
   return (
@@ -7,7 +8,7 @@ const Instagram = () => {
         <div className="flex items-center hover:bg-gray-200 rounded-lg p-1">
           <div className="w-5 h-5">
             <img
-              src="src/assets/instagram.png"
+              src={instagram}
               alt="https://www.flaticon.com/free-icons/instagram-logo"
             />
           </div>
