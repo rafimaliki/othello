@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Grid from "./components/grid";
 import Stat from "./components/stat";
 import Reset from "./components/reset";
+import Instagram from "./components/instagram";
 
 function App() {
   const size = 8;
@@ -127,6 +128,7 @@ function App() {
               size={size}
             />
           </div>
+          <Instagram />
         </div>
       </div>
     </>
