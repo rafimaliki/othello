@@ -7,6 +7,10 @@ import Reset from "./components/reset";
 import Instagram from "./components/instagram";
 
 function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const size = 8;
   const [gridData, setGridData] = useState(
     Array.from({ length: size }, () => Array.from({ length: size }, () => null))
@@ -103,9 +107,9 @@ function App() {
 
   return (
     <>
-      <div className="bg-gray-100 border w-screen h-screen flex justify-center items-center">
-        <div className="w-96 h-screen bg-white flex flex-col justify-center items-center">
-          <p className="font-bold text-4xl"> OTHELLO </p>
+      <div className="bg-gray-100 border w-screen min-h-screen flex justify-center items-center">
+        <div className="w-96 min-h-screen bg-white flex flex-col justify-center items-center">
+          <p className="mt-10 font-bold text-4xl"> OTHELLO </p>
           <Stat gridData={gridData} size={size} player={player} />
           <Grid
             gridData={gridData}
@@ -116,7 +120,7 @@ function App() {
             setCountPlaced={setCountPlaced}
             size={size}
           />
-          <div className="flex w-80  mt-7 items-center">
+          <div className="flex w-80 mt-7 items-center">
             <p className="w-full text-2xl font-bold">{countWinner()}</p>
             <Reset
               gridData={gridData}

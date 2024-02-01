@@ -3,7 +3,7 @@ import instagram from "../assets/instagram.png";
 
 const Instagram = () => {
   return (
-    <div className="flex justify-center fixed bottom-0 w-full h-10">
+    <div className="w-fit">
       <a href="https://www.instagram.com/rafimaliki_/ " target="_blank">
         <div className="flex items-center hover:bg-gray-200 rounded-lg p-1">
           <div className="w-5 h-5">
