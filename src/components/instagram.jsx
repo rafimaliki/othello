@@ -12,7 +12,7 @@ const Instagram = () => {
               alt="https://www.flaticon.com/free-icons/instagram-logo"
             />
           </div>
-          <a className="ml-2">rafimaliki_</a>
+          <p className="ml-2">rafimaliki_</p>
         </div>
       </a>
     </div>

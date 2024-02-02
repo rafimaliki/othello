@@ -26,7 +26,7 @@ const Reset = ({
   };
 
   return (
-    <div className="w-fit flex items-center justify-end mb-20">
+    <div className="w-fit flex items-center justify-end">
       <button
         onClick={() => handleReset()}
         className="border-1 rounded-md p-3 w-fit h-10 bg-red-500 hover:bg-red-200 border-black border-2 text-black text-2xl font-mono font-black flex items-center justify-center"

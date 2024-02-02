@@ -5,6 +5,7 @@ import Grid from "./components/grid";
 import Stat from "./components/stat";
 import Reset from "./components/reset";
 import Instagram from "./components/instagram";
+import Winner from "./components/winner";
 
 function App() {
   useEffect(() => {
@@ -78,33 +79,6 @@ function App() {
     }
   };
 
-  const countWinner = () => {
-    if (countPlaced !== size * size) {
-      return "";
-    }
-    var countWhite = 0;
-    var countBlack = 0;
-
-    for (let i = 0; i < size; i++) {
-      for (let j = 0; j < size; j++) {
-        if (gridData[i][j] === "⚪") {
-          countWhite++;
-        } else if (gridData[i][j] === "⚫") {
-          countBlack++;
-        }
-      }
-    }
-
-    if (countWhite > countBlack) {
-      return "White Wins!";
-    } else if (countBlack > countWhite) {
-      return "Black Wins!";
-    } else {
-      console.log("draw");
-      return "Draw";
-    }
-  };
-
   return (
     <>
       <div className="bg-gray-100 border w-screen min-h-screen flex justify-center items-center">
@@ -120,8 +94,8 @@ function App() {
             setCountPlaced={setCountPlaced}
             size={size}
           />
-          <div className="flex w-80 mt-7 items-center">
-            <p className="w-full text-2xl font-bold">{countWinner()}</p>
+          <div className="flex w-80 mt-7 mb-20 items-center">
+            <Winner gridData={gridData} size={size} countPlaced={countPlaced} />
             <Reset
               gridData={gridData}
               setGridData={setGridData}

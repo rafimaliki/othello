@@ -25,7 +25,10 @@ const GridItem = ({ row, col, props }) => {
       var newRight = JSON.parse(JSON.stringify(gridData));
 
       for (let i = col + 1; i < size; i++) {
-        if (newRight[row][i] === null || i === size - 1) {
+        if (
+          newRight[row][i] === null ||
+          (i === size - 1 && newRight[row][i] === enemyColor)
+        ) {
           newRight = JSON.parse(JSON.stringify(gridData));
           break;
         } else if (newRight[row][i] === enemyColor && i !== 7) {
@@ -41,7 +44,10 @@ const GridItem = ({ row, col, props }) => {
       var newLeft = JSON.parse(JSON.stringify(newRight));
 
       for (let i = col - 1; i >= 0; i--) {
-        if (newLeft[row][i] === null || i === 0) {
+        if (
+          newLeft[row][i] === null ||
+          (i === 0 && newLeft[row][i] === enemyColor)
+        ) {
           newLeft = JSON.parse(JSON.stringify(newRight));
           break;
         } else if (newLeft[row][i] === enemyColor && i !== 0) {
@@ -57,7 +63,10 @@ const GridItem = ({ row, col, props }) => {
       var newUp = JSON.parse(JSON.stringify(newLeft));
 
       for (let i = row - 1; i >= 0; i--) {
-        if (newUp[i][col] === null || i === 0) {
+        if (
+          newUp[i][col] === null ||
+          (i === 0 && newUp[i][col] === enemyColor)
+        ) {
           newUp = JSON.parse(JSON.stringify(newLeft));
           break;
         } else if (newUp[i][col] === enemyColor && i !== 0) {
@@ -73,7 +82,10 @@ const GridItem = ({ row, col, props }) => {
       var newDown = JSON.parse(JSON.stringify(newUp));
 
       for (let i = row + 1; i < size; i++) {
-        if (newDown[i][col] === null || i === size - 1) {
+        if (
+          newDown[i][col] === null ||
+          (i === size - 1 && newDown[i][col] === enemyColor)
+        ) {
           newDown = JSON.parse(JSON.stringify(newUp));
           break;
         } else if (newDown[i][col] === enemyColor && i !== 7) {
@@ -89,7 +101,11 @@ const GridItem = ({ row, col, props }) => {
       var newUpRight = JSON.parse(JSON.stringify(newDown));
 
       for (let i = row - 1, j = col + 1; i >= 0 && j < size; i--, j++) {
-        if (newUpRight[i][j] === null || i === 0 || j === size - 1) {
+        if (
+          newUpRight[i][j] === null ||
+          (i === 0 && newUpRight[i][j] === enemyColor) ||
+          (j === size - 1 && newUpRight[i][j] === enemyColor)
+        ) {
           newUpRight = JSON.parse(JSON.stringify(newDown));
           break;
         } else if (newUpRight[i][j] === enemyColor && i !== 0 && j !== 7) {
@@ -105,7 +121,11 @@ const GridItem = ({ row, col, props }) => {
       var newUpLeft = JSON.parse(JSON.stringify(newUpRight));
 
       for (let i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
-        if (newUpLeft[i][j] === null || i === 0 || j === 0) {
+        if (
+          newUpLeft[i][j] === null ||
+          (i === 0 && newUpLeft[i][j] == enemyColor) ||
+          (j === 0 && newUpLeft[i][j] == enemyColor)
+        ) {
           newUpLeft = JSON.parse(JSON.stringify(newUpRight));
           break;
         } else if (newUpLeft[i][j] === enemyColor && i !== 0 && j !== 0) {
@@ -121,7 +141,11 @@ const GridItem = ({ row, col, props }) => {
       var newDownRight = JSON.parse(JSON.stringify(newUpLeft));
 
       for (let i = row + 1, j = col + 1; i < size && j < size; i++, j++) {
-        if (newDownRight[i][j] === null || i === size - 1 || j === size - 1) {
+        if (
+          newDownRight[i][j] === null ||
+          (i === size - 1 && newDownRight[i][j] === enemyColor) ||
+          (j === size - 1 && newDownRight[i][j] === enemyColor)
+        ) {
           newDownRight = JSON.parse(JSON.stringify(newUpLeft));
           break;
         } else if (newDownRight[i][j] === enemyColor && i !== 7 && j !== 7) {
@@ -137,7 +161,11 @@ const GridItem = ({ row, col, props }) => {
       var newDownLeft = JSON.parse(JSON.stringify(newDownRight));
 
       for (let i = row + 1, j = col - 1; i < size && j >= 0; i++, j--) {
-        if (newDownLeft[i][j] === null || i === size - 1 || j === 0) {
+        if (
+          newDownLeft[i][j] === null ||
+          (i === size - 1 && newDownLeft == enemyColor) ||
+          (j === 0 && newDownLeft == enemyColor)
+        ) {
           newDownLeft = JSON.parse(JSON.stringify(newDownRight));
           break;
         } else if (newDownLeft[i][j] === enemyColor && i !== 7 && j !== 0) {
